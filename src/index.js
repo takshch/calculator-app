@@ -78,7 +78,7 @@ class Home extends React.Component{
           node.classList.remove("selected");
           console.log(resultValue);
           this.setState({action: ""});
-        }else if(this.state.calcString !== Infinity){
+        }else if(this.state.calcString !== Infinity && this.state.calcString !== "0"){ 
           console.log(`Number : ${this.state.calcString}`);
           let calcString  = `${this.state.calcString}${innerValue}`;
           this.setState({calcString});
