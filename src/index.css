@@ -1,0 +1,210 @@
+
+.light-theme {
+  --theme-bg: #A6B0E8;
+  --cal-display-bg: rgba(79, 109, 248, 0.85);
+  --cal-display-color: #FDFEFE;
+  --key-bg: #000;
+  --click-bg: rgba(0,0,0,0.1);
+  /* --click-bg: rgb(44, 36, 36); */
+}
+.dark-theme{
+  /* --theme-bg:rgba(0,0,0,0.1); */
+  --theme-bg: rgb(244, 188, 172);
+  --cal-display-bg: rgb(247, 108, 92);
+  --cal-display-color: #080706;
+  --key-bg: rgb(243, 243, 245);
+  --click-bg: rgba(255,255,255,0.08);
+  /* --click-bg: rgb(243, 243, 245); */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icons{
+  margin: 10px;
+  margin-left: auto;
+  position: relative;
+  padding-left: 15px;
+}
+
+input.toggle {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+input.toggle:focus {
+  outline: 0;
+}
+
+.toggle {
+  box-sizing: border-box;
+  margin-right: 8px !important;
+  margin-top: 10px !important;
+  height: 18px;
+  width: 35px;
+  border-radius: 16px;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  background: var(--theme-bg);
+  /* border: 2px solid var(--theme-bg); */
+  transition: all 0.2s ease;
+}
+.toggle:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: white;
+  /* box-shadow: 0 1px 2px rgba(44, 44, 44, 0.2); */
+  transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35);
+}
+.toggle:checked {
+  padding: 5px;
+  transform: scale(1) !important;
+}
+.toggle:checked:after {
+  transform: translateX(20px);
+  background:#000;
+}
+
+
+
+
+.container{
+  display: flex;
+  justify-content: center;
+  transition: all 4s ease-in;
+  overflow: hidden;
+}
+.wrapper{
+  border: 3px solid var(--cal-display-bg);
+  flex-basis: 370px;
+  max-width: 370px;
+  display: block;
+  /* border: 2px solid #000; */
+  border-radius: 4px;
+  height: 99vh;
+  margin: auto;
+}
+.calculator > .calculator-head{
+  background: var(--cal-display-bg);
+  color: var(--cal-display-color);
+  font-size: 1.1rem;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.calculator > .calculator-body{
+  background: var(--cal-display-color);
+  height: 60%;
+  overflow: hidden;
+}
+.calculator-head .innerText{
+  margin-top: auto;
+  padding: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  text-align: right;
+}
+.calculator-head .innerText > .calc{
+  color: var(--cal-display-color);
+  font-size: ;
+}
+.calculator-head .innerText > .result{
+  color: var(--cal-display-color);
+  padding-top: 6px;
+  font-size: 3rem;
+}
+
+.calculator-body{
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
+  color: var(--cal-display-bg);
+  width: 100%;
+  display: flex;
+  align-self: center;
+  background: var(--cal-display-color);
+}
+.calculator-body > .body-wrapper{
+  margin: auto;
+  height: 90%;
+  width: 90%;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.calculator-body > .body-wrapper > div{
+  display:flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.calculator-body > .body-wrapper > div >  button{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  border: none;
+  color: var(--key-bg);
+  font-size: 1.5rem;
+  text-align: center;
+  background: var(--cal-display-color);
+  margin: 3px;
+  outline: none;
+} 
+.calculator-body > .body-wrapper > div >  button:active{
+  background: var(--click-bg);
+  color: var(--cal-display-bg);
+}
+.calculator-body > .body-wrapper > div:nth-of-type(1) >  button:nth-of-type(1):active,
+.calculator-body > .body-wrapper > div:nth-last-of-type(1) >  button:last-child:active{
+  background: var(--cal-display-color);
+  color: var(--cal-display-bg);
+}
+
+.calculator-body > .body-wrapper > div:nth-last-of-type(1) >  button:last-child{
+  flex-grow: 2;
+  border-bottom-right-radius: 15px;
+}
+
+.calculator-body > .body-wrapper > div:nth-of-type(1) >  button:nth-of-type(1),
+.calculator-body > .body-wrapper > div:nth-last-of-type(1) >  button:last-child,
+.selected
+{
+  background: var(--cal-display-bg) !important;
+  color: #FDFEFE !important;
+} 
+
+.calculator-body > .body-wrapper > div:nth-of-type(1) >  button:not(:nth-of-type(1)),
+.calculator-body > .body-wrapper > div:not(:nth-of-type(5)) >  button:last-child{
+  color: var(--cal-display-bg);
+} 
+
+
+.calculator-body > .body-wrapper > div >  button:last-child > span{
+  font-size: 0.9em;
+}
+
+.calculator-body > .body-wrapper > div:nth-of-type(1) >  button:last-child{
+  flex: 2;
+}
+
+.calculator-body > .body-wrapper > div >  button > span{
+  pointer-events: none;
+}
+
