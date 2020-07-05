@@ -26,6 +26,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+body:before {
+  background-image: url("./tswirls.png");
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+
 .icons{
   margin: 10px;
   margin-left: auto;
@@ -99,6 +113,7 @@ input.toggle:focus {
   border-radius: 4px;
   height: 99vh;
   margin: auto;
+  box-shadow: 2px 2px 35px 2px rgba(0,0,0,0.30);
 }
 .calculator > .calculator-head{
   background: var(--cal-display-bg);

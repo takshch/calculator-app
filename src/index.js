@@ -10,20 +10,20 @@ class Home extends React.Component{
     super();
     this.state = {
       themeClassName: 'light-theme',
-      calcString: "",
+      calcString: "0",
       action: null,
     }
     this.calc = this.calc.bind(this);
   }
   clear = () =>{
     if(this.state.calcString !== ""){
-      if(this.state.action !== "" && this.state.action === null){
+      if(this.state.action !== "" && this.state.action !== null){
         let node = ReactDOM.findDOMNode(this.refs[this.state.action]);
         console.log(node);
         node.classList.remove("selected");
         this.setState({action: ""});
       }
-      this.setState({calcString: ""});
+      this.setState({calcString: "0"});
     }
   }
 
@@ -82,7 +82,7 @@ class Home extends React.Component{
           console.log(`Number : ${this.state.calcString}`);
           let calcString  = `${this.state.calcString}${innerValue}`;
           this.setState({calcString});
-        }else if(this.state.calcString === Infinity){
+        }else if(this.state.calcString === Infinity || this.state.calcString === "0"){
           let calcString  = `${innerValue}`;
           this.setState({calcString});
         }
